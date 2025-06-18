@@ -1,5 +1,8 @@
-def say_hello():
-    print("🔥 Hello from Azure runtime! 🔥")
+from fastapi import FastAPI
+from fastapi.responses import HTMLResponse
 
-if __name__ == "__main__":
-    say_hello()
+app = FastAPI()
+
+@app.get("/", response_class=HTMLResponse)
+def home():
+    return "<h1>✅ Hello from Azure — you’re live!</h1>"
